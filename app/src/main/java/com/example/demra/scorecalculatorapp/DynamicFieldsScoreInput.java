@@ -1,6 +1,8 @@
 package com.example.demra.scorecalculatorapp;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.text.InputType;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ public class DynamicFieldsScoreInput {
     public DynamicFieldsScoreInput(Context ctx) {
         this.ctx = ctx;
     }
+    
     public TextView nameTextView(Context context, String text)
     {
         final ViewGroup.LayoutParams lparams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
