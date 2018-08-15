@@ -40,8 +40,7 @@ public class InitializePlayersActivity extends AppCompatActivity {
         //startButton=(Button)findViewById(R.id.startBtn);
 
     }
-    public void start(View view)
-    {
+    public void start(View view) throws InterruptedException {
         boolean full=true;
         String [] names=new String[PlayersCount];
         for (int i=0;i<PlayersCount;i++)

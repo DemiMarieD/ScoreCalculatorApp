@@ -12,20 +12,23 @@ public class MainActivity extends AppCompatActivity {
     //Bundle bundle = getIntent().getExtras();
     //String[] names=bundle.    getStringArray("name");
 
-    int PlayersCount = ((GlobalApplication)this.getApplication()).getNumberOfPlayers();
-    com.example.demra.scorecalculatorapp.Player[] Players=((GlobalApplication)this.getApplication()).getPlayerArray();
-
+    int PlayersCount;
+    com.example.demra.scorecalculatorapp.Player[] Players;
     Context context;
     GridLayout mlayout;
     int index=2;
-    DynamicFieldsScoreInput dynamicScoreInput=new DynamicFieldsScoreInput(context);
+    DynamicFieldsScoreInput dynamicScoreInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        // Players=createPlayersArray(names);
-        mlayout=(GridLayout) findViewById(R.id.my2layout);
+        PlayersCount = ((GlobalApplication)this.getApplication()).getNumberOfPlayers();
+        Players = ((GlobalApplication)this.getApplication()).getPlayerArray();
+
+        dynamicScoreInput = new DynamicFieldsScoreInput(context);
+        mlayout=(GridLayout)findViewById(R.id.my2layout);
 
         for (int i=0;i<PlayersCount;i++)
         {
