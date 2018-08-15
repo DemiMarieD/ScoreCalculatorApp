@@ -6,15 +6,14 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 
-import com.example.demra.scorecalculator.Player;
-
 public class InitializePlayersActivity extends AppCompatActivity {
-    com.example.demra.scorecalculator.DynamicFields dynamicFields;
+    DynamicFieldsNames dynamicFieldsNames;
     GridLayout mlayout;
     Context context;
     Button startButton;
@@ -26,15 +25,15 @@ public class InitializePlayersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initialize_players);
         mlayout=(GridLayout) findViewById(R.id.mylayout);
-        Bundle bundle = getIntent().getExtras();
-        PlayersCount=bundle.getInt("numberofplayers");
-        dynamicFields=new com.example.demra.scorecalculator.DynamicFields(context);
+       // Bundle bundle = getIntent().getExtras();
+        PlayersCount=((GlobalApplication)this.getApplication()).getNumberOfPlayers();
+        dynamicFieldsNames =new DynamicFieldsNames(context);
 
         for (int i=0;i<PlayersCount;i++)
         {
 
-            mlayout.addView(dynamicFields.labelTextView(getApplicationContext(),"#"+(i+1)),index);
-            mlayout.addView(dynamicFields.inputPlayerName(getApplicationContext(),i+1),index+1);
+            mlayout.addView(dynamicFieldsNames.labelTextView(getApplicationContext(),"#"+(i+1)),index);
+            mlayout.addView(dynamicFieldsNames.inputPlayerName(getApplicationContext(),i+1),index+1);
 
             index+=2;
         }
@@ -73,14 +72,25 @@ public class InitializePlayersActivity extends AppCompatActivity {
         else
         {
 
-            Bundle bundle=new Bundle();
-            bundle.putStringArray("names",names);
+            //Bundle bundle=new Bundle();
+            //bundle.putStringArray("names",names);
+            ((GlobalApplication)this.getApplication()).setPlayerArray(createPlayersArray(names));
+            Log.d("main","ich bin hier");
 
             Intent i=new Intent(this,MainActivity.class);
-            i.putExtras(bundle);
+           // i.putExtras(bundle);
             startActivity(i);
         }
     }
 
+    public com.example.demra.scorecalculatorapp.Player[] createPlayersArray (String [] names)
+    {
+        com.example.demra.scorecalculatorapp.Player [] playersInit= new com.example.demra.scorecalculatorapp.Player[names.length];
+        for (int i=0;i<names.length;i++)
+        {
+            playersInit[i]=new com.example.demra.scorecalculatorapp.Player(i+1,names[i]);
+        }
+        return playersInit;
+    }
 
 }

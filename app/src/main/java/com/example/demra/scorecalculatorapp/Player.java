@@ -1,4 +1,4 @@
-package com.example.demra.scorecalculator;
+package com.example.demra.scorecalculatorapp;
 
 public class Player {
     String name;
@@ -24,5 +24,9 @@ public class Player {
     public int getId()
     {
         return this.id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

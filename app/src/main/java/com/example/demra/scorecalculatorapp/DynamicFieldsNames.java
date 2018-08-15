@@ -1,4 +1,4 @@
-package com.example.demra.scorecalculator;
+package com.example.demra.scorecalculatorapp;
 
 import android.content.Context;
 import android.text.InputType;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class DynamicFields {
+public class DynamicFieldsNames {
     Context ctx;
 
-    public DynamicFields(Context ctx) {
+    public DynamicFieldsNames(Context ctx) {
         this.ctx = ctx;
     }
     public TextView labelTextView(Context context, String text)

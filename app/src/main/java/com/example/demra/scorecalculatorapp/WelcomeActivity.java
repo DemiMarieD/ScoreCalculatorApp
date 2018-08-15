@@ -46,11 +46,13 @@ public class WelcomeActivity extends AppCompatActivity {
         else
         {
             //new Page
-            Bundle bundle=new Bundle();
-            bundle.putInt("numberofplayers",numberOfPlayers);
+            //Bundle bundle=new Bundle();
+            //bundle.putInt("numberofplayers",numberOfPlayers);
+
+            ((GlobalApplication)this.getApplication()).setNumberOfPlayers(numberOfPlayers);
 
             Intent i=new Intent(this,InitializePlayersActivity.class);
-            i.putExtras(bundle);
+           // i.putExtras(bundle);
             startActivity(i);
             //setContentView(R.layout.activity_initialize_players);
         }
