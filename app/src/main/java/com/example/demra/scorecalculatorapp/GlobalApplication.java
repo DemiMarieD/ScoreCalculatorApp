@@ -26,5 +26,13 @@ public class GlobalApplication extends Application {
         this.playerArray = playerArray;
     }
 
+    private int roundNumber;
 
+    public int getRoundNumber() {
+        return roundNumber;
+    }
+
+    public void setRoundNumber(int roundNumber) {
+        this.roundNumber = roundNumber;
+    }
 }

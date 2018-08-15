@@ -8,26 +8,30 @@
 
     <GridLayout
         android:id="@+id/my2layout"
-        android:layout_width="368dp"
-        android:layout_height="337dp"
-        app:columnCount="2"
+        android:layout_width="338dp"
+        android:layout_height="297dp"
+        android:alignmentMode="alignBounds"
+        android:columnCount="2"
+        android:textAlignment="inherit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906">
+        app:layout_constraintVertical_bias="0.271">
 
         <TextView
             android:id="@+id/PlayerName"
-            android:layout_width="186dp"
+            android:layout_width="171dp"
             android:layout_height="wrap_content"
-            android:text="Player" />
+            android:text="Player"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/PlayerScore"
             android:layout_width="181dp"
             android:layout_height="wrap_content"
             android:text="Score"
+            android:textAlignment="center"
             app:layout_column="1"
             app:layout_row="0" />
 
@@ -36,12 +40,25 @@
     <TextView
         android:id="@+id/Round"
         android:layout_width="58dp"
-        android:layout_height="50dp"
+        android:layout_height="28dp"
         android:text="Round"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/my2layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:onClick="roundFinished"
+        android:text="Enter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my2layout" />
 
 </android.support.constraint.ConstraintLayout>

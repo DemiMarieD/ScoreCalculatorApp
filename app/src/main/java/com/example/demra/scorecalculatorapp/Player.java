@@ -18,7 +18,9 @@ public class Player {
 
     public int addToScore(int value)
     {
-        return this.score+value;
+
+        this.score=score+value;
+        return this.score;
     }
 
     public int getId()

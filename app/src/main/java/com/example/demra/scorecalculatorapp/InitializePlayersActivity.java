@@ -25,7 +25,8 @@ public class InitializePlayersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initialize_players);
         mlayout=(GridLayout) findViewById(R.id.mylayout);
-       // Bundle bundle = getIntent().getExtras();
+
+
         PlayersCount=((GlobalApplication)this.getApplication()).getNumberOfPlayers();
         dynamicFieldsNames =new DynamicFieldsNames(context);
 
@@ -74,8 +75,7 @@ public class InitializePlayersActivity extends AppCompatActivity {
             //Bundle bundle=new Bundle();
             //bundle.putStringArray("names",names);
             ((GlobalApplication)this.getApplication()).setPlayerArray(createPlayersArray(names));
-            Log.d("main","ich bin hier");
-
+            ((GlobalApplication)this.getApplication()).setRoundNumber(1);
             Intent i=new Intent(this,MainActivity.class);
            // i.putExtras(bundle);
             startActivity(i);
