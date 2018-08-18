@@ -1,13 +1,16 @@
 package com.example.demra.scorecalculatorapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class EndActivity extends AppCompatActivity {
     Player [] Players;
     Player winner;
     TextView winnerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,5 +27,11 @@ public class EndActivity extends AppCompatActivity {
         winnerName=findViewById(R.id.winnerName);
         winnerName.setText(winner.name+" with "+winner.score+" points");
 
+    }
+
+    public void newGame(View view)
+    {
+        Intent intent=new Intent(this,WelcomeActivity.class);
+        startActivity(intent);
     }
 }
